@@ -43,6 +43,8 @@ def get_next_open_row(board, col):
 
 def print_board(board):
     print(np.flip(board, 0))
+    with open('board_file.txt', 'a') as board_file:
+        board_file.write(str(np.flip(board, 0)))
 
 
 def winning_move(board, piece):
