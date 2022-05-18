@@ -185,7 +185,6 @@ def get_valid_locations(board):
 
 
 def pick_best_move(board, piece):
-
     valid_locations = get_valid_locations(board)
     best_score = -10000
     best_col = random.choice(valid_locations)
@@ -221,7 +220,7 @@ def draw_board(board):
 
 
 board = create_board()
-print_board(board)
+# print_board(board)
 game_over = False
 
 pygame.init()
@@ -278,7 +277,7 @@ while not game_over:
                     turn += 1
                     turn = turn % 2
 
-                    print_board(board)
+                    # print_board(board)
                     draw_board(board)
 
     # # Ask for Player 2 Input
@@ -287,7 +286,6 @@ while not game_over:
         #col = random.randint(0, COLUMN_COUNT-1)
         #col = pick_best_move(board, AI_PIECE)
         col, minimax_score = minimax(board, 5, -math.inf, math.inf, True)
-
         if is_valid_location(board, col):
             # pygame.time.wait(500)
             row = get_next_open_row(board, col)
@@ -298,7 +296,7 @@ while not game_over:
                 screen.blit(label, (40, 10))
                 game_over = True
 
-            print_board(board)
+            # print_board(board)
             draw_board(board)
 
             turn += 1
